@@ -16,7 +16,7 @@ function ttfInfo(data) {
       }
     };
   } catch(e) {
-    throw(e.message);
+    throw(e);
   }
 }
 
