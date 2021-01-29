@@ -1,7 +1,6 @@
 
 const table = require('./table');
 
-
 module.exports = function(data) {
   var ntOffset = table.offset(data, 'name'),
       offsetStorage = data.readUInt16BE(ntOffset+4),
@@ -31,4 +30,3 @@ module.exports = function(data) {
 
   return info;
 };
-

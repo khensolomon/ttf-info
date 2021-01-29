@@ -10,4 +10,3 @@ module.exports = function(data) {
     weightClass       : data.readUInt16BE(o+WEIGHT_CLASS_OFFSET)
   };
 };
-
