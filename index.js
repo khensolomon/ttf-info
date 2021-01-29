@@ -34,11 +34,11 @@ function fn(data, callback) {
  */
 module.exports = function(pathOrData, callback) {
 	(pathOrData instanceof Buffer ? fn : fs.readFile)(pathOrData, function(err, data) {
-		if (err) return callback(new Error(err.message));
-		try {
+    if (err) return callback(new Error(err.message));
+    try {
       fn(ttfInfo(data),callback);
-		} catch(err) {
-			callback(new Error(err.message));
-		}
-	});
+    } catch(err) {
+      callback(new Error(err.message));
+    }
+  });
 };
