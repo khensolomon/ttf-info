@@ -33,7 +33,7 @@ function fn(data, callback) {
  * @param {{(error:NodeJS.ErrnoException,meta?:{tables:{name:any,post:any,os2:{version:any,weightClass:any}}}):void}} callback
  */
 module.exports = function(pathOrData, callback) {
-	(pathOrData instanceof Buffer ? fn : fs.readFile)(pathOrData, function(err, data) {
+  (pathOrData instanceof Buffer ? fn : fs.readFile)(pathOrData, function(err, data) {
     if (err) return callback(new Error(err.message));
     try {
       fn(ttfInfo(data),callback);
