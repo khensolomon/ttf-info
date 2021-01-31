@@ -6,7 +6,7 @@ import assert from 'assert';
 const fontFile = './test/font.ttf';
 
 describe('ttfMeta', () => {
-	it('ttfMeta.ttfInfo callback', () => {
+	it('Using callback', () => {
 		ttfMeta.ttfInfo(fontFile, function(err, info) {
       assert.strictEqual(null,err);
       assert.strictEqual(7,Object.keys(info.tables.name).length);
@@ -15,7 +15,7 @@ describe('ttfMeta', () => {
 		});
   });
 
-	it('ttfMeta.promise', () => {
+	it('Using promise', () => {
 		ttfMeta.promise(fontFile).then(function(info){
       assert.strictEqual(7,Object.keys(info.tables.name).length);
       assert.strictEqual(9,Object.keys(info.tables.post).length);
@@ -23,14 +23,26 @@ describe('ttfMeta', () => {
     });
   });
 
-  it('expected error using ttfMeta.ttfInfo callback', () => {
+	it('Returning object has meta property', () => {
+		ttfMeta.promise(fontFile).then(function(info){
+      assert.strictEqual(4,Object.keys(info.meta).length);
+
+      assert.ok(info.meta.property);
+      assert.ok(info.meta.license);
+      assert.ok(info.meta.reference);
+      assert.ok(info.meta.description);
+
+    });
+  });
+
+  it('Expecting error on ttfMeta.ttfInfo callback', () => {
 		ttfMeta.ttfInfo('./test/none.ttf', function(error) {
       assert.ok(error);
       assert.strictEqual('string',typeof error);
 		});
   });
 
-  it('expected error using ttfMeta.promise', () => {
+  it('Expecting error on ttfMeta.promise', () => {
     ttfMeta.promise('./test/none.ttf').then(function(info){
       assert.throws(info);
     }).catch(function(error){
@@ -39,7 +51,7 @@ describe('ttfMeta', () => {
     });
   });
 
-  it('reading from Buffer', () => {
+  it('Reading from Buffer', () => {
     fs.readFile(fontFile,function(err, buffer) {
       if (err){
         throw err;
