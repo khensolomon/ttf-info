@@ -1,4 +1,4 @@
-# ttf-info
+# ttfmeta
 
 ... is forked from [trevordixon/ttfinfo][forked-from] and improve, add test
 
@@ -13,14 +13,14 @@
 - [x] Auto-load
 - [x] webpack
 
-... Changed the package name `ttfinfo` to *ttf-info*
+... Changed the package name `ttfinfo` to *ttfmeta*
 
 ## Web
 
-> In your web Application point `ttf-info`...
+> In your web Application point `ttfmeta`...
 
 ```js
-<script src="https://unpkg.com/ttf-info@latest/min.js"></script>
+<script src="https://unpkg.com/ttfmeta@latest/min.js"></script>
 ```
 
 > ... then
@@ -58,12 +58,12 @@ fontInfo.promise(Buffer).then(function(info){
 
 ## Node.js
 
-> Install `npm i ttf-info` then require... and get the result returned as Object if there is a sense in get query, otherwise empty Object (`{}`) return.
+> Install `npm i ttfmeta` then require... and get the result returned as Object if there is a sense in get query, otherwise empty Object (`{}`) return.
 
 ## ESM
 
 ```js
-import fontInfo from 'ttf-info';
+import fontInfo from 'ttfmeta';
 
 fontInfo.promise(Buffer).then(
   info=>{
@@ -78,7 +78,7 @@ fontInfo.promise(Buffer).then(
 fontInfo.ttfInfo('fontFile', function(err, info) {
 });
 
-import {ttfInfo} from 'ttf-info';
+import {ttfInfo} from 'ttfmeta';
 
 ttfInfo('fontFile', function(err, info) {
 });
@@ -88,7 +88,7 @@ ttfInfo('fontFile', function(err, info) {
 ## Commonjs
 
 ```js
-const fontInfo = require('ttf-info');
+const fontInfo = require('ttfmeta');
 
 
 fontInfo.promise(Buffer).then(
@@ -104,7 +104,7 @@ fontInfo.promise(Buffer).then(
 fontInfo.ttfInfo('fontFile', function(err, info) {
 });
 
-const {ttfInfo} = require('ttf-info');
+const {ttfInfo} = require('ttfmeta');
 
 ttfInfo('fontFile', function(err, info) {
 });
@@ -117,10 +117,10 @@ ttfInfo('fontFile', function(err, info) {
 [forked-from]: https://github.com/trevordixon/ttfinfo
 [test-mocha]: https://img.shields.io/badge/test-mocha-green.svg?longCache=true
 [webpack-check]: https://img.shields.io/badge/webpack-yes-green.svg?longCache=true
-[webpack-url]: https://unpkg.com/ttf-info@latest/min.js
-[travis]: https://travis-ci.com/khensolomon/ttf-info.svg
-[travis-url]: https://travis-ci.com/khensolomon/ttf-info
-[npm-download]: https://img.shields.io/npm/dt/ttf-info.svg
-[npm-dl-url]: https://www.npmjs.com/package/ttf-info
+[webpack-url]: https://unpkg.com/ttfmeta@latest/min.js
+[travis]: https://travis-ci.com/khensolomon/ttfmeta.svg
+[travis-url]: https://travis-ci.com/khensolomon/ttfmeta
+[npm-download]: https://img.shields.io/npm/dt/ttfmeta.svg
+[npm-dl-url]: https://www.npmjs.com/package/ttfmeta
 [license]: https://img.shields.io/badge/License-MIT-brightgreen.svg?longCache=true&style=popout-square
 [license-url]: https://opensource.org/licenses/MIT
