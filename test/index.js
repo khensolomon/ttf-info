@@ -1,50 +1,83 @@
 import 'mocha';
+import fs from 'fs';
 import ttfMeta from '../lib/index.js';
 import assert from 'assert';
 
+const fontFile = './test/font.ttf';
+
 describe('ttfMeta', () => {
-	it('Checking query', () => {
-		// const job = ttfMeta('');
-		// assert.ok(job);
-		ttfMeta('/storage/media/fonts/external/BURMA___.TTF', function(err, info) {
-			console.log('error',err);
-			console.log('info',info);
+	it('ttfMeta.ttfInfo callback', () => {
+		ttfMeta.ttfInfo(fontFile, function(err, info) {
+      assert.strictEqual(null,err);
+      assert.strictEqual(7,Object.keys(info.tables.name).length);
+      assert.strictEqual(9,Object.keys(info.tables.post).length);
+      assert.strictEqual(2,Object.keys(info.tables.os2).length);
 		});
-	});
-	// it('Non-numeric should returned empty Object', () => {
-	// 	const job = notation('Non-numeric');
-	// 	assert.ok(job instanceof Object);
-	// });
-	// it('1230 should returned ၁၂၃၀', () => {
-	// 	const job = notation('1230');
-	// 	assert.strictEqual('၁၂၃၀',job.number);
-	// });
-	// it('၁၂၀၀,၀၀၀.၀ == 12000000 as removed decimals', () => {
-	// 	const job = notation('၁၂၀၀,၀၀၀.၀');
-	// 	assert.strictEqual('12000000',job.number);
-	// });
-	// it('1.23e+5 == ၁၂၃၀၀၀', () => {
-	// 	const job = notation('1.23e+5');
-	// 	assert.strictEqual('၁၂၃၀၀၀',job.number);
-	// });
-	// describe("var job = notation.get('12345678')", () => {
-	// 	const job = notation('12345678');
-	// 	it('job.number:String should be ၁၂၃၄၅၆၇၈', () => {
-	// 		assert.strictEqual('၁၂၃၄၅၆၇၈',job.number);
-	// 	});
-	// 	it('job.notation:Object should have 3 senses', () => {
-	// 		assert.ok(job.notation.length == 3);
-	// 	});
-	// 	describe('each Sense', () => {
-	// 		it(job.notation[0].sense, () => {
-	// 			assert.ok(job.notation[0].sense);
-	// 		});
-	// 		it(job.notation[1].sense, () => {
-	// 			assert.ok(job.notation[1].sense);
-	// 		});
-	// 		it(job.notation[2].sense, () => {
-	// 			assert.ok(job.notation[2].sense);
-	// 		});
-	// 	});
-	// });
+  });
+
+	it('ttfMeta.promise', () => {
+		ttfMeta.promise(fontFile).then(function(info){
+      assert.strictEqual(7,Object.keys(info.tables.name).length);
+      assert.strictEqual(9,Object.keys(info.tables.post).length);
+      assert.strictEqual(2,Object.keys(info.tables.os2).length);
+    });
+  });
+
+  it('expected error using ttfMeta.ttfInfo callback', () => {
+		ttfMeta.ttfInfo('./test/none.ttf', function(error) {
+      assert.ok(error);
+      assert.strictEqual('string',typeof error);
+		});
+  });
+
+  it('expected error using ttfMeta.promise', () => {
+    ttfMeta.promise('./test/none.ttf').then(function(info){
+      assert.throws(info);
+    }).catch(function(error){
+      assert.ok(error);
+      assert.strictEqual('string',typeof error);
+    });
+  });
+
+  it('reading from Buffer', () => {
+    fs.readFile(fontFile,function(err, buffer) {
+      if (err){
+        throw err;
+      } else {
+        ttfMeta.promise(buffer).then(function(info){
+          assert.ok(info);
+        }).catch(function(error){
+          throw error;
+        });
+      }
+    })
+  });
+
 });
+/*
+result {
+  tables: {
+    name: {
+      '0': 'World Book Math Symbols  \x10 Produced by Alphabets, Inc. 1 800 326 9783',
+      '1': 'WorldMath',
+      '2': 'Regular',
+      '3': 'Macromedia Fontographer 4.1.2 WorldMath',
+      '4': 'WorldMath',
+      '5': 'Macromedia Fontographer 4.1.2 96/8/6',
+      '6': 'WorldMath'
+    },
+    post: {
+      format: 2,
+      italicAngle: 0,
+      underlinePosition: 0,
+      underlineThickness: 0,
+      isFixedPitch: 0,
+      minMemType42: 16743168,
+      maxMemType42: 2063602688,
+      minMemType1: 335544320,
+      maxMemType1: 0
+    },
+    os2: { version: 0, weightClass: 400 }
+  }
+}
+*/
