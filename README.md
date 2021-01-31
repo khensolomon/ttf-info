@@ -26,7 +26,7 @@
 > ... then
 
 ```js
-fontMeta.promise(Buffer).then(function(info){
+ttfMeta.promise(Buffer).then(function(info){
 
   // return info should be
   info:{
