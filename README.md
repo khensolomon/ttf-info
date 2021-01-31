@@ -26,7 +26,7 @@
 > ... then
 
 ```js
-fontInfo.promise(Buffer).then(function(info){
+fontMeta.promise(Buffer).then(function(info){
 
   // return info should be
   info:{
@@ -63,9 +63,9 @@ fontInfo.promise(Buffer).then(function(info){
 ## ESM
 
 ```js
-import fontInfo from 'ttfmeta';
+import fontMeta from 'ttfmeta';
 
-fontInfo.promise(Buffer).then(
+fontMeta.promise(Buffer).then(
   info=>{
 
   }
@@ -75,7 +75,7 @@ fontInfo.promise(Buffer).then(
   }
 );
 
-fontInfo.ttfInfo('fontFile', function(err, info) {
+fontMeta.ttfInfo('fontFile', function(err, info) {
 });
 
 import {ttfInfo} from 'ttfmeta';
@@ -88,10 +88,10 @@ ttfInfo('fontFile', function(err, info) {
 ## Commonjs
 
 ```js
-const fontInfo = require('ttfmeta');
+const fontMeta = require('ttfmeta');
 
 
-fontInfo.promise(Buffer).then(
+fontMeta.promise(Buffer).then(
   info => {
 
   }
@@ -101,7 +101,7 @@ fontInfo.promise(Buffer).then(
   }
 );
 
-fontInfo.ttfInfo('fontFile', function(err, info) {
+fontMeta.ttfInfo('fontFile', function(err, info) {
 });
 
 const {ttfInfo} = require('ttfmeta');
