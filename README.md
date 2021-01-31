@@ -8,7 +8,7 @@
 ![Mocha][test-mocha]
 
 - [x] has TypeScript declarations
-- [x] support both ESM and CommonJs including browser
+- [x] support both ESM and CommonJS including browser
 - [x] mocha
 - [x] Auto-load
 - [x] webpack
@@ -85,7 +85,7 @@ ttfInfo('fontFile', function(err, info) {
 
 ```
 
-## Commonjs
+## CommonJS
 
 ```js
 const fontMeta = require('ttfmeta');
@@ -110,7 +110,7 @@ ttfInfo('fontFile', function(err, info) {
 });
 ```
 
-> NOTE: `type` attribute in package should be `commonjs` before publishing to npm, but the package itself is a module so testing, developing must be alway `module`.
+> NOTE: `type` attribute in package should be `CommonJS` before publishing to npm, but the package itself is a module so testing, developing must be alway `module`.
 
 [![License: MIT][license]][license-url]
 
