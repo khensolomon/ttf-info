@@ -2,6 +2,11 @@
 
 ... is forked from [trevordixon/ttfinfo][forked-from] and improve, add test
 
+[![Build Status][travis]][travis-url]
+[![npm][npm-download]][npm-dl-url]
+[![Webpack][webpack-check]][webpack-url]
+![Mocha][test-mocha]
+
 - [x] has TypeScript declarations
 - [x] support both ESM and CommonJs including browser
 - [x] mocha
@@ -112,10 +117,10 @@ ttfInfo('fontFile', function(err, info) {
 [forked-from]: https://github.com/trevordixon/ttfinfo
 [test-mocha]: https://img.shields.io/badge/test-mocha-green.svg?longCache=true
 [webpack-check]: https://img.shields.io/badge/webpack-yes-green.svg?longCache=true
-[webpack-url]: https://unpkg.com/myanmar-notation@latest/min.js
-[travis]: https://travis-ci.com/khensolomon/myanmar-notation.svg
-[travis-url]: https://travis-ci.com/khensolomon/myanmar-notation
-[npm-download]: https://img.shields.io/npm/dt/myanmar-notation.svg
-[npm-dl-url]: https://www.npmjs.com/package/myanmar-notation
+[webpack-url]: https://unpkg.com/ttf-info@latest/min.js
+[travis]: https://travis-ci.com/khensolomon/ttf-info.svg
+[travis-url]: https://travis-ci.com/khensolomon/ttf-info
+[npm-download]: https://img.shields.io/npm/dt/ttf-info.svg
+[npm-dl-url]: https://www.npmjs.com/package/ttf-info
 [license]: https://img.shields.io/badge/License-MIT-brightgreen.svg?longCache=true&style=popout-square
 [license-url]: https://opensource.org/licenses/MIT
