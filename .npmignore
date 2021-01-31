@@ -1,0 +1,7 @@
+lib/
+dist/
+test/
+#min.js
+*.config.js
+*.build.js
+*-lock.json
