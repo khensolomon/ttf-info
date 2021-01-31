@@ -11,7 +11,7 @@ export default {
   output: {
     path: path.resolve('./'),
     filename:'[name].js',
-    library: 'ttfInfo',
+    library: 'ttfMeta',
     libraryTarget: 'window'
   },
   resolve: {
