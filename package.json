@@ -1,7 +1,7 @@
 {
-  "name": "tffinfo",
-  "version": "0.2.0",
-  "description": "hello world",
+  "name": "ttf-info",
+  "version": "1.0.0",
+  "description": "get TTF font file information",
   "main": "index",
   "types": "index",
   "type": "module",
@@ -28,13 +28,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khensolomon/ttfinfo.git"
+    "url": "git+https://github.com/khensolomon/ttf-info.git"
   },
   "keywords": [
-    "ttf"
+    "ttf","font","meta","promise","extract"
   ],
   "bugs": {
-    "url": "https://github.com/khensolomon/ttfinfo/issues"
+    "url": "https://github.com/khensolomon/ttf-info/issues"
   },
   "files": [
     "index.d.ts",
@@ -44,7 +44,7 @@
   ],
   "author": "Khen Solomon Lethil",
   "license": "MIT",
-  "homepage": "https://github.com/khensolomon/ttfinfo#readme",
+  "homepage": "https://github.com/khensolomon/ttf-info#readme",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
