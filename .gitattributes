@@ -5,6 +5,7 @@
 
 /test/ export-ignore
 webpack.config.js export-ignore
+webpack.build.js export-ignore
 
 
 .editorconfig export-ignore
