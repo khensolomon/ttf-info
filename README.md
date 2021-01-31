@@ -1,4 +1,4 @@
-# font-Info
+# ttf-info
 
 ... is forked from [trevordixon/ttfinfo][forked-from] and improve, add test
 
