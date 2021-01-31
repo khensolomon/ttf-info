@@ -1,12 +1,10 @@
 // import fs from 'fs';
-// import ttfMeta from '../lib/index.js';
+import ttfMeta from '../lib/index.js';
 // import ttfMeta from '../index.js';
 // ttfMeta.ttfInfo('./test/font.ttf', function(err, info) {
 //       console.log('error',err);
 //       console.log('info',info);
 // });
-
-
 
 // ttfMeta.promise('./test/font.ttf').then(
 //       e=>console.log('result',e)
