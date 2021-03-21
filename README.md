@@ -1,126 +1,167 @@
 # ttfmeta
 
-... is forked from [trevordixon/ttfinfo][forked-from] and improve, add test
+A [Node.js](#nodejs) module and a [library](#browser) that extracted metadata from ttf font file or buffer. It is forked from [trevordixon/ttfinfo][forked-from] and improve, add test. Check [live Application][demo] is available...
 
-[![Build Status][travis]][travis-url]
-[![npm][npm-download]][npm-dl-url]
-[![Webpack][webpack-check]][webpack-url]
-![Mocha][test-mocha]
+[![workflows-badge]][workflows]
+[![travis-badge]][travis]
+[![npm-badge]][npm]
+[![webpack-badge]][latest-min]
+![test-mocha]
+
+## Feature
 
 - [x] has TypeScript declarations
 - [x] support both ESM and CommonJS including browser
-- [x] mocha
-- [x] Auto-load
-- [x] webpack
+- [x] Reading from file (or) buffer
+- [x] [Demo][demo]
 
-... Changed the package name `ttfinfo` to *ttfmeta*
+## Usage
 
-## Web
+### Node.JS
 
-> In your web Application point `ttfmeta`...
+`npm i ttfmeta` to install, and can be `require` or `import` from your Node.JS application. However `ttfmeta` is assuming that one day npm might force us to seperate ES and CommonJS module. Therefore, it is a good practice to start coding Node.JS application using ES6 module.
 
 ```js
+// ES6
+import ttfMeta from 'ttfmeta';
+import {ttfInfo,promise} from 'ttfmeta';
+
+// CommonJS
+const ttfMeta = require('ttfmeta');
+const {ttfInfo,promise} = require('ttfmeta');
+```
+
+### Browser
+
+Include the file `ttfmeta@latest/min.js` in your web application. It is available on [UNPKG][unpkg].
+
+```html
 <script src="https://unpkg.com/ttfmeta@latest/min.js"></script>
+<script>
+window.ttfMeta;
+</script>
 ```
 
-> ... then
+## API
+
+- [`ttfMeta.promise()`](#promise)
+- [`ttfMeta.ttfInfo()`](#ttfInfo)
+- [Result `{meta:{...}, tables:{...}}`](#result)
+
+### Promise
+
+the `ttfMeta.promise()`, `promise()`
 
 ```js
-ttfMeta.promise(Buffer).then(function(info){
-
-  // return info should be
-  info:{
-    tables: {
-      name: {
-        '0': string,
-        '1': string,
-        // and so on...
-      },
-      post: {
-        format: number,
-        italicAngle: number,
-        underlinePosition: number,
-        underlineThickness: number,
-        isFixedPitch: number,
-        minMemType42: number,
-        maxMemType42: number,
-        minMemType1: number,
-        maxMemType1: number
-      },
-      os2: {
-        version: number,
-        weightClass: number
-      }
-    }
-  }
-});
-```
-
-## Node.js
-
-> Install `npm i ttfmeta` then require... and get the result returned as Object if there is a sense in get query, otherwise empty Object (`{}`) return.
-
-## ESM
-
-```js
-import fontMeta from 'ttfmeta';
-
-fontMeta.promise(Buffer).then(
-  info=>{
-
-  }
+ttfMeta.promise('file.ttf').then(
+  result => console.log(result)
 ).catch(
-  error=>{
-
-  }
+  err => console.log('error',err)
 );
 
-fontMeta.ttfInfo('fontFile', function(err, info) {
-});
-
-import {ttfInfo} from 'ttfmeta';
-
-ttfInfo('fontFile', function(err, info) {
-});
-
+// or
+promise('file.ttf (or) buffer').then(
+  result => console.log(result)
+).catch(
+  err => console.log('error',err)
+);
 ```
 
-## CommonJS
+### ttfInfo
+
+the `ttfMeta.ttfInfo()`, `ttfInfo()`
 
 ```js
-const fontMeta = require('ttfmeta');
-
-
-fontMeta.promise(Buffer).then(
-  info => {
-
+ttfMeta.ttfInfo('file.ttf', (err, result) => {
+  if (err) {
+    console.log('error', err)
+  } else {
+    console.log('result', result)
   }
-).catch(
-  error => {
-
-  }
-);
-
-fontMeta.ttfInfo('fontFile', function(err, info) {
 });
 
-const {ttfInfo} = require('ttfmeta');
-
-ttfInfo('fontFile', function(err, info) {
-});
+// or
+ttfInfo('file.ttf (or) buffer', (err, result) => ...);
 ```
 
-> NOTE: `type` attribute in package should be `CommonJS` before publishing to npm, but the package itself is a module so testing, developing must be alway `module`.
+### Result
 
-[![License: MIT][license]][license-url]
+This orginal [trevordixon/ttfinfo][forked-from] does not contain formated meta property in result.
+
+```js
+{
+  meta: {
+    property: [
+      { name: 'font-family', text: String },
+      { name: 'font-subfamily', text: String },
+      { name: 'unique-identifier', text: String },
+      { name: 'full-name', text: String },
+      { name: 'version', text: String },
+      { name: 'postscript-name', text: String },
+      { name: 'company', text: String },
+      { name: 'author', text: String }
+    ],
+    description: [
+      { name: 'title', text: String },
+      { name: 'paragraph', text: String },
+      ...
+    ],
+    license: [
+      { name: 'title', text: String },
+      { name: 'paragraph', text: String },
+      ...
+    ],
+    reference: [
+      { name: 'url', text: 'http://...' },
+      ...
+    ]
+  },
+  tables: {
+    name: {
+      '0': String,
+      '1': String,
+      '2': String,
+      '3': String,
+      '4': String,
+      '5': String,
+      '6': String,
+      '7': String,
+      '8': String,
+      '9': String,
+      ...
+      '18': String
+    },
+    post: {
+      format: Number,
+      italicAngle: Number,
+      underlinePosition: Number,
+      underlineThickness: Number,
+      isFixedPitch: Number,
+      minMemType42: Number,
+      maxMemType42: Number,
+      minMemType1: Number,
+      maxMemType1: Number
+    },
+    os2: { version: Number, weightClass: Number }
+  }
+}
+```
+
+## License
+
+![shield-license]
+
+[demo]: https://khensolomon.github.io/ttfmeta/
+[workflows-badge]: https://github.com/khensolomon/ttfmeta/workflows/Node/badge.svg
+[workflows]: https://github.com/khensolomon/ttfmeta/actions/workflows/node.yml
+[test-mocha]: https://img.shields.io/badge/test-mocha-green.svg?longCache=true
+[webpack-badge]: https://img.shields.io/badge/webpack-yes-green.svg?longCache=true
+[latest-min]: https://unpkg.com/ttfmeta@latest/min.js
+[unpkg]: https://unpkg.com/
+[travis-badge]: https://travis-ci.com/khensolomon/ttfmeta.svg
+[travis]: https://travis-ci.com/khensolomon/ttfmeta
+[npm-badge]: https://img.shields.io/npm/dt/ttfmeta.svg
+[npm]: https://www.npmjs.com/package/ttfmeta
+[shield-license]: https://img.shields.io/github/license/khensolomon/ttfmeta?style=social
 
 [forked-from]: https://github.com/trevordixon/ttfinfo
-[test-mocha]: https://img.shields.io/badge/test-mocha-green.svg?longCache=true
-[webpack-check]: https://img.shields.io/badge/webpack-yes-green.svg?longCache=true
-[webpack-url]: https://unpkg.com/ttfmeta@latest/min.js
-[travis]: https://travis-ci.com/khensolomon/ttfmeta.svg
-[travis-url]: https://travis-ci.com/khensolomon/ttfmeta
-[npm-download]: https://img.shields.io/npm/dt/ttfmeta.svg
-[npm-dl-url]: https://www.npmjs.com/package/ttfmeta
-[license]: https://img.shields.io/badge/License-MIT-brightgreen.svg?longCache=true&style=popout-square
-[license-url]: https://opensource.org/licenses/MIT
