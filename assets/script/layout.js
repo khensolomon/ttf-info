@@ -12,12 +12,16 @@ export default {
       var metalist = this.metalist;
       for (const e of files) {
         var reader = new FileReader();
+        // var size = this.formatBytes(e.size);
+        // console.log(e);
         reader.onload = function(evt) {
           var arrayBuffer =  evt.target.result, data = new DataView(arrayBuffer, 0, arrayBuffer.byteLength);
           // window.ttfMeta.ttfInfo(data,function(err,info){ console.log(err,info); })
+          // console.log(arrayBuffer);
           window.ttfMeta.promise(data).then(
             meta => metalist.push({
               name:e.name,
+              size:arrayBuffer.byteLength,
               meta:meta
             })
           ).catch(
