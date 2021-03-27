@@ -9,6 +9,10 @@ Add
 - Formatted meta `meta` in result.
 - Demo
 
+Update
+
+- devDependencies
+
 ## 1.0.1 (Meta)
 
 Add
