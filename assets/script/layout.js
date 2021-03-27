@@ -6,12 +6,16 @@ export default {
   methods: {
     onChange() {
       // this.filelist = [...evt.target.files];
-      this.filelist = [...this.$refs.file.files];
-      for (const e of this.filelist) {
+      var files = this.$refs.file.files;
+      this.filelist = [...this.filelist,...files];
+
+
+      // this.filelist = [...this.$refs.file.files];
+      for (const e of files) {
         var reader = new FileReader();
         reader.onload = function(evt) {
-          var arrayBuffer =  evt.target.result;
-          var data = new DataView(arrayBuffer, 0, arrayBuffer.byteLength);
+          var arrayBuffer =  evt.target.result, data = new DataView(arrayBuffer, 0, arrayBuffer.byteLength);
+          // window.ttfMeta.ttfInfo(data,function(err,info){ console.log(err,info); })
           window.ttfMeta.promise(data).then(
             e => console.log(e)
           ).catch(
@@ -20,6 +24,7 @@ export default {
         }
         reader.readAsArrayBuffer(e);
       }
+
     },
     remove(i) {
       this.filelist.splice(i, 1);
@@ -29,10 +34,10 @@ export default {
      * @param {*} evt
      */
     dragover(evt) {
-      // evt.preventDefault();
-      if (!evt.currentTarget.classList.contains('bg-green-300')) {
-        evt.currentTarget.classList.remove('bg-gray-100');
-        evt.currentTarget.classList.add('bg-green-300');
+      evt.preventDefault();
+      if (!evt.currentTarget.classList.contains('color-red')) {
+        evt.currentTarget.classList.remove('color-blue');
+        evt.currentTarget.classList.add('color-red');
       }
     },
     /**
@@ -40,16 +45,16 @@ export default {
      * Clean up
      */
     dragleave(evt) {
-      evt.currentTarget.classList.add('bg-gray-100');
-      evt.currentTarget.classList.remove('bg-green-300');
+      evt.currentTarget.classList.add('color-blue');
+      evt.currentTarget.classList.remove('color-red');
     },
     drop(evt) {
-      // evt.preventDefault();
+      evt.preventDefault();
       this.$refs.file.files = evt.dataTransfer.files;
       this.onChange(); // Trigger the onChange event manually
-      // Clean up
-      evt.currentTarget.classList.add('bg-gray-100');
-      evt.currentTarget.classList.remove('bg-green-300');
+      // // Clean up
+      evt.currentTarget.classList.add('color-blue');
+      evt.currentTarget.classList.remove('color-red');
     },
     formatBytes(a,b=2){
       if (0===a) return"0 Byte";
