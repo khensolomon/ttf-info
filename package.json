@@ -72,7 +72,7 @@
   ],
   "author": "Khen Solomon Lethil",
   "license": "MIT",
-  "homepage": "https://github.com/khensolomon/ttfmeta#readme",
+  "homepage": "https://khensolomon.github.io/ttfmeta/",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
