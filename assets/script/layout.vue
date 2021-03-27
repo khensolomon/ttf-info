@@ -26,7 +26,7 @@
       </div>
       <div class="result">
         <div>
-          <ul v-if="this.filelist.length" v-cloak>
+          <ul v-if="this.filelist.length > 0">
             <li v-for="file in filelist" v-bind:key="file">
               see console.log <span v-html="file.name"></span> <button type="button" @click="remove(filelist.indexOf(file))" title="Remove file">remove</button>
             </li>
