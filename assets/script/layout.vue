@@ -35,8 +35,9 @@
             <li v-for="file in metalist" v-bind:key="file">
               <h2><span type="button" @click="remove(metalist.indexOf(file))" title="Remove file" class="icon-cancel"></span> {{file.name}}</h2>
               <p v-if="file.msg" v-html="file.msg"></p>
+              <p v-if-else v-html="formatBytes(file.size)"></p>
               <div v-for="(value, name) in file.meta" v-bind:key="value">
-                <h3>{{ name }}</h3>
+                <h3>{{ name }} </h3>
                 <pre>{{ value }}</pre>
               </div>
             </li>
