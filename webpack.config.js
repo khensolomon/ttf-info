@@ -6,10 +6,10 @@ export default {
   devtool: 'inline-source-map',
 
   entry: {
-    min:path.resolve('./lib/index.js')
+    min:path.resolve('./lib/main.js')
   },
   output: {
-    path: path.resolve('./'),
+    path: path.resolve('./docs'),
     filename:'[name].js',
     library: 'ttfMeta',
     libraryTarget: 'window'
