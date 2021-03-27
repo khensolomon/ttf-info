@@ -1,33 +1,38 @@
 export default {
   data: () => ({
-    filelist: []
+    filelist: [],
+    metalist: []
   }),
   components: {},
   methods: {
     onChange() {
-      // this.filelist = [...evt.target.files];
+      // var files = evt.target.files;
       var files = this.$refs.file.files;
-      this.filelist = [...this.filelist,...files];
-
-
-      // this.filelist = [...this.$refs.file.files];
+      // this.filelist = [...this.filelist,...files];
+      var metalist = this.metalist;
       for (const e of files) {
         var reader = new FileReader();
         reader.onload = function(evt) {
           var arrayBuffer =  evt.target.result, data = new DataView(arrayBuffer, 0, arrayBuffer.byteLength);
           // window.ttfMeta.ttfInfo(data,function(err,info){ console.log(err,info); })
           window.ttfMeta.promise(data).then(
-            e => console.log(e)
+            meta => metalist.push({
+              name:e.name,
+              meta:meta
+            })
           ).catch(
-            e=>console.log('error',e)
+            msg => metalist.push({
+              name:e.name,
+              msg:msg,
+              meta:{}
+            })
           )
         }
         reader.readAsArrayBuffer(e);
       }
-
     },
     remove(i) {
-      this.filelist.splice(i, 1);
+      this.metalist.splice(i, 1);
     },
     /**
      * Add some visual fluff to show the user can drop its files
@@ -48,11 +53,15 @@ export default {
       evt.currentTarget.classList.add('color-blue');
       evt.currentTarget.classList.remove('color-red');
     },
+    /**
+     * @param {*} evt
+     * onChange -> Trigger the onChange event manually
+     * Clean up
+     */
     drop(evt) {
       evt.preventDefault();
       this.$refs.file.files = evt.dataTransfer.files;
-      this.onChange(); // Trigger the onChange event manually
-      // // Clean up
+      this.onChange();
       evt.currentTarget.classList.add('color-blue');
       evt.currentTarget.classList.remove('color-red');
     },
