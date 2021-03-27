@@ -1,6 +1,6 @@
 # ttfmeta
 
-A [Node.js](#nodejs) module and a [library](#browser) that extracted metadata from ttf font file or buffer. It is forked from [trevordixon/ttfinfo][forked-from] and improve, add test. Check [live Application][demo] is available...
+A [Node.js](#nodejs) module and a [library](#browser) that extracted metadata from ttf font file or buffer. It is forked from [trevordixon/ttfinfo][forked-from] and improve, add test. Check [live Application][demo] using Vue is available...
 
 [![workflows-badge]][workflows]
 [![travis-badge]][travis]
