@@ -1,7 +1,7 @@
 {
   "name": "ttfmeta",
   "version": "1.0.2",
-  "description": "Extracted metadata from ttf font file or buffer.",
+  "description": "Node.js module and a library that extract metadata from ttf font file or buffer.",
   "main": "index",
   "types": "index",
   "type": "module",
