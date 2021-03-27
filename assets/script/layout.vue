@@ -26,9 +26,18 @@
       </div>
       <div class="result">
         <div>
-          <ul v-if="this.filelist.length > 0">
+          <!-- <ul v-if="this.filelist.length">
             <li v-for="file in filelist" v-bind:key="file">
               see console.log <span v-html="file.name"></span> <button type="button" @click="remove(filelist.indexOf(file))" title="Remove file">remove</button>
+            </li>
+          </ul> -->
+          <ul v-if="this.metalist.length">
+            <li v-for="file in metalist" v-bind:key="file">
+              <h2><span type="button" @click="remove(metalist.indexOf(file))" title="Remove file" class="icon-cancel"></span> {{file.name}}</h2>
+              <div v-for="(value, name) in file.meta" v-bind:key="value">
+                <h3>{{ name }}</h3>
+                <pre>{{ value }}</pre>
+              </div>
             </li>
           </ul>
         </div>
