@@ -1,10 +1,7 @@
 import Vue from 'vue';
-// import "./../../lib/index.js";
 
 // @ts-ignore
 import layout from "./layout.vue";
-
-// import Home from "./home/index.vue";
 
 Vue.config.productionTip = true;
 Vue.config.devtools = true;
