@@ -2,14 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.0.2
+## 1.0.2 (Module & library)
 
 Add
 
 - Formatted meta `meta` in result.
 - Demo
 
-## 1.0.1
+## 1.0.1 (Meta)
 
 Add
 
