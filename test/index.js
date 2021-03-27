@@ -67,30 +67,3 @@ describe('ttfMeta', () => {
   });
 
 });
-/*
-result {
-  tables: {
-    name: {
-      '0': 'World Book Math Symbols  \x10 Produced by Alphabets, Inc. 1 800 326 9783',
-      '1': 'WorldMath',
-      '2': 'Regular',
-      '3': 'Macromedia Fontographer 4.1.2 WorldMath',
-      '4': 'WorldMath',
-      '5': 'Macromedia Fontographer 4.1.2 96/8/6',
-      '6': 'WorldMath'
-    },
-    post: {
-      format: 2,
-      italicAngle: 0,
-      underlinePosition: 0,
-      underlineThickness: 0,
-      isFixedPitch: 0,
-      minMemType42: 16743168,
-      maxMemType42: 2063602688,
-      minMemType1: 335544320,
-      maxMemType1: 0
-    },
-    os2: { version: 0, weightClass: 400 }
-  }
-}
-*/
