@@ -101,7 +101,7 @@ ttfInfo('file.ttf (or) buffer', (err, result) => ...);
 
 ### Result
 
-This orginal [trevordixon/ttfinfo][forked-from] does not contain formated meta property in result.
+This result promise an object with `meta` and `tables` regardless.
 
 ```js
 {
