@@ -5,7 +5,7 @@
       <h1>ttf<span>Meta</span></h1>
     </div>
     <div>
-      <a href="https://github.com/khensolomon/ttfmeta/issues/new" class="link">issue</a>
+      <a href="https://github.com/khensolomon/ttfmeta/discussions/new" class="link">discussions</a>
       <a target="_blank" class="badge github" href="https://github.com/khensolomon/ttfmeta/workflows/Node/badge.svg">
         <img src="https://github.com/khensolomon/ttfmeta/workflows/Node/badge.svg" alt="Github">
       </a>
@@ -44,7 +44,7 @@
       <a href="https://github.com/khensolomon/ttfmeta/stargazers">
         <img alt="GitHub stars" src="https://img.shields.io/github/stars/khensolomon/ttfmeta?style=social">
       </a>
-      <a href="https://github.com/khensolomon/ttfmeta/issues">
+      <a href="https://github.com/khensolomon/ttfmeta/discussions/new">
         <img alt="GitHub issues" src="https://img.shields.io/github/issues/khensolomon/ttfmeta?style=social">
       </a>
     </div>
