@@ -166,8 +166,6 @@ This orginal [trevordixon/ttfinfo][forked-from] does not contain formated meta p
 
 ![shield-license]
 
-> NOTE: `type` attribute in package should be `CommonJS` before publishing to npm, but the package itself is a module so testing, developing must be alway `module`.
-
 [demo]: https://khensolomon.github.io/ttfmeta/
 [workflows-badge]: https://github.com/khensolomon/ttfmeta/workflows/Node/badge.svg
 [workflows]: https://github.com/khensolomon/ttfmeta/actions/workflows/node.yml
