@@ -93,6 +93,7 @@ body {
                 background-color: lighten(lightyellow,5);
                 box-shadow:inset 0em 0em 0.2em gray;
                 outline: none;
+                @include user-select();
                 div{
                   display: table;
                   position: relative;
@@ -114,6 +115,7 @@ body {
                     }
                     &:hover{
                       color: lighten(rgb(199, 126, 17),5);
+                      text-decoration: underline;
                       span{
                         color: lighten(rgb(165, 61, 19),5);
                       }
