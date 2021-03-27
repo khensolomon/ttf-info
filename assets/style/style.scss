@@ -165,6 +165,33 @@ body {
                   li{
                     margin: 15px 0;
                     color:darken(gray,20);
+                    h2{
+                      color:darken(rgb(199, 194, 194),20);
+                      font-weight: lighter;
+                      span{
+                        color:rgb(228, 89, 89);
+                        border-radius: 3px;
+                        padding: 3px;
+                        background-color:rgb(228, 225, 225);
+                        &:hover{
+                          background-color:rgb(189, 188, 188);
+                        }
+                      }
+                    }
+                    div{
+                      h3{
+                        color:darken(rgb(199, 194, 194),20);
+                        margin: 4px 4px;
+                        padding: 6px 16px;
+                        border-bottom: 1px dotted gray;
+                        font-style: italic;
+                        font-weight: lighter;
+                      }
+                      pre{
+                        color:darken(rgb(129, 123, 123),20);
+                        padding: 10px 2px;
+                      }
+                    }
                   }
                 }
               }
