@@ -9,7 +9,7 @@ export default {
     min:path.resolve('./lib/main.js')
   },
   output: {
-    path: path.resolve('./docs'),
+    path: path.resolve('./'),
     filename:'[name].js',
     library: 'ttfMeta',
     libraryTarget: 'window'
