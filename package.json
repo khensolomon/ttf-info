@@ -10,41 +10,10 @@
     "build": "npm run build:web && npm run build:node",
     "build:node": "tsc",
     "build:web": "node webpack.build.js",
-    "tst": "mocha ./test/index.js",
-    "test": "mocha",
+    "tst": "mocha test/*.js",
+    "test": "mocha ./test/index.js",
     "docs": "npm run build:web && node webpack.docs-serve.js",
     "docs:build": "npm run build:web && node webpack.docs-build.js"
-  },
-  "-org-scripts": {
-    "-prepublish": "npm run build",
-    "build": "npm run build:web && npm run build:node",
-    "build:node": "tsc",
-    "build:web": "node webpack.build.js",
-    "tst": "mocha -r test/*.js",
-    "test": "mocha"
-  },
-  "-delete-script": {
-    "-prepublish": "npm run build",
-    "build": "npm run build:web && npm run build:node",
-    "build:node": "tsc",
-    "build:web": "node webpack.build.js",
-    "tst": "mocha -r test/*.js",
-    "test": "mocha",
-    "docs": "node webpack.docs-serve.js",
-    "docs:build": "node webpack.docs-build.js"
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ],
-    "plugins": []
   },
   "repository": {
     "type": "git",
@@ -75,37 +44,6 @@
   "homepage": "https://khensolomon.github.io/ttfmeta/",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "babel-loader": "^8.2.2",
-    "mocha": "^8.2.1",
-    "typescript": "^4.1.3",
-    "css-loader": "^5.0.1",
-    "file-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^1.3.1",
-    "sass": "^1.29.0",
-    "sass-loader": "^10.1.0",
-    "url-loader": "^4.1.1",
-    "vue": "^2.6.12",
-    "vue-loader": "^15.9.5",
-    "vue-resource": "^1.5.1",
-    "vue-router": "^3.4.9",
-    "vue-template-compiler": "^2.6.12",
-    "vue-template-loader": "^1.1.0",
-    "webpack": "^5.20.2",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.7.3"
-  },
-  "-org-devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "babel-loader": "^8.2.2",
-    "mocha": "^8.2.1",
-    "typescript": "^4.1.3",
-    "webpack": "^5.19.0",
-    "webpack-merge": "^5.7.3"
-  },
-  "-delete-devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
