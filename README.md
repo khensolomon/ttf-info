@@ -37,8 +37,23 @@ Include the file `ttfmeta@latest/min.js` in your web application. It is availabl
 
 ```html
 <script src="https://unpkg.com/ttfmeta@latest/min.js"></script>
+
+<input type="file" name="files[]" multiple />
 <script>
-window.ttfMeta;
+  // window.ttfMeta;
+  var file = 'blob or arrayBuffer';
+
+  var reader = new FileReader();
+  reader.onload = function(evt) {
+    var arrayBuffer =  evt.target.result;
+    var data = new DataView(arrayBuffer, 0, arrayBuffer.byteLength);
+    window.ttfMeta.promise(data).then(
+      e => console.log(e)
+    ).catch(
+      e=>console.log('error',e)
+    )
+  }
+  reader.readAsArrayBuffer(file);
 </script>
 ```
 
