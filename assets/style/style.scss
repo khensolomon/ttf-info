@@ -79,19 +79,12 @@ body {
           width: 100%;
           >div{
             // min-width: 300px;
-
             &:nth-child(1){
               >form{
-
                 position: relative;
-
-                border-radius: 3px;
-                // width: 400px;
-                // width: 80%;
-                // padding:40px 30px;
                 height: 60px;
-                background-color: lighten(lightyellow,5);
-                box-shadow:inset 0em 0em 0.2em gray;
+                // background-color: lighten(lightyellow,5);
+                // box-shadow:inset 0em 0em 0.2em gray;
                 outline: none;
                 @include user-select();
                 div{
@@ -102,6 +95,9 @@ body {
                   width: 90%;
                   height: 90%;
                   padding:20px 5%;
+                  background-color: lighten(lightyellow,1);
+                  box-shadow:inset 0em 0em 0.2em gray;
+                  border-radius: 3px;
                   input{
                     display: none;
                   }
@@ -125,10 +121,17 @@ body {
                     font-weight: lighter;
                     color: lighten(rgb(129, 129, 116),5);
                   }
+                  // &:focus{
+                  //   background-color: lighten(lightyellow,1);
+                  // }
+                  &.color-blue{
+                    background-color: lighten(lightyellow,1);
+                  }
+                  &.color-red{
+                    background-color: lighten(rgb(204, 204, 153),1);
+                  }
                 }
-                &:focus{
-                  background-color: lighten(lightyellow,1);
-                }
+
               }
             }
             &:nth-child(2){
@@ -176,10 +179,7 @@ body {
         // justify-content:center;
         // background-color: red;
         >div{
-          // text-align: center;
-          a {
-            // display: inline-block;
-          }
+          text-align: center;
         }
       }
     }
