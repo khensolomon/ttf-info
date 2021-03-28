@@ -27,7 +27,7 @@
     "extract"
   ],
   "bugs": {
-    "url": "https://github.com/khensolomon/ttfmeta/issues"
+    "url": "https://github.com/khensolomon/ttfmeta/discussions"
   },
   "files": [
     "index.d.ts",
