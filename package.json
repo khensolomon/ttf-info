@@ -10,7 +10,7 @@
     "build": "npm run build:web && npm run build:node",
     "build:node": "tsc",
     "build:web": "node webpack.build.js",
-    "tst": "mocha test/*.js",
+    "tst": "node ./test/local.js",
     "test": "mocha ./test/index.js",
     "docs": "npm run build:web && node webpack.docs-serve.js",
     "docs:build": "npm run build:web && node webpack.docs-build.js"
